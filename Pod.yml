@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Pod
+metdata:
+  name: Demo
+  namespace: dev 
+  labels:
+     app: firstpod
+spec:
+ containers:
+ - name: myapp-demo
+   image: nginx
+   env:
+   - name: configasenv
+     valueFrom:
+        configMapKeyRef:
+           name: 
+           key:
+   volumeMounts:
+     - name:  firstconfigmap
+       mountPath:  /data
+   ports:
+   - containerPort: 80
+volumes:
+  - name:  firstconfigmap
+    configMap:
+       name: myconfigmap
+
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconfigmap
+  labels:
+    app: myapplication
+data:
+  dev: env 
+  owner: prem
+
+
