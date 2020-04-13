@@ -9,6 +9,13 @@ spec:
  containers:
  - name: myapp-demo
    image: nginx
+   resources:
+    requests:
+      memory:
+      cpu:
+    limits:
+      memory:
+      cpu: 
    env:
    - name: configasenv
      valueFrom:
@@ -20,6 +27,18 @@ spec:
        mountPath:  /data
    ports:
    - containerPort: 80
+   livenessProbe:
+      httpGet:
+         path:
+         port: 
+      initialDelaySeconds:
+      periodSeconds:
+   readinessProbe:
+      httpGet:
+         path:
+         port:
+      initialDelaySeconds:
+      periodSeconds:
 volumes:
   - name:  firstconfigmap
     configMap:
@@ -37,5 +56,33 @@ metadata:
 data:
   dev: env 
   owner: prem
+
+
+---
+
+ apiVersion: v1
+ kind: Secret
+ metadata:
+   name: demosecret
+ stringData:
+    key: value 
+
+ # multi container # sidecar, ambassador, and adapter. 
+ # container can interact with each other using shared network ,volume or process namespace
+
+ #https://kubernetes.io/docs/concepts/cluster-administration/logging/#using-a-sidecar-container-with-the-logging-agent
+#https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/
+#https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/
+
+ # sidecar Pod : add or enchances the functionality of the main contianer 
+ # ambassador pod :  accepts the network traffic and pass it on to the main container .
+ # adapater: changes the output of the main contianer in some way .
+
+
+#https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
+#https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/
+
+#Livenessprobe : indicates weather the container is running properly or not 
+#readnessprobe: indicates weather the container is ready service the request .
 
 
