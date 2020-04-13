@@ -1,0 +1,51 @@
+Service Mesh Istio
+
+3 features : 
+Traffic management 
+Security 
+Observability 
+
+Istio Architecture :
+
+Service (application deployed on the kubernetes cluster)
+
+proxy (envoy proxy) - layer 7 proxy 
+- loadbalancing
+- service discovery 
+- TLS Termination
+- health check 
+- stage rollout 
+
+Control panel API :
+
+Pilot: 
+- sends configuration to the proxy and allows 
+  - health check and get information about the what pods are avaiable 
+- Service discovery
+- intelligent routing and resiliency 
+
+Citadle :
+- user authentication
+- credential management
+- certificate management
+- traffice encryption 
+
+Mixer : (lot of plugins avaiable for mixer)
+- access Control
+- usage policy
+- Telmentary data 
+- loggin moniotring 
+
+galley :
+
+Route53 :
+
+ZOnes : 
+- is container that holds important information about how to route Traffic 
+  domain names(example.com)  and its subdomains(singdli.example.com) .
+
+client --- Nameserver ----- Root name server .
+           -----> TLD Name server .com
+           -----> Domain level name server amazon.com 
+           <------- returns the ip  
+           - if it finds the match and returns the ip address 

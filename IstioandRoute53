@@ -1,0 +1,70 @@
+Service Mesh Istio
+
+3 features : 
+Traffic management 
+Security 
+Observability 
+
+Istio Architecture :
+
+Service (application deployed on the kubernetes cluster)
+
+proxy (envoy proxy) - layer 7 proxy 
+- loadbalancing
+- service discovery 
+- TLS Termination
+- health check 
+- stage rollout 
+
+Control panel API :
+
+Pilot: 
+- sends configuration to the proxy and allows 
+  - health check and get information about the what pods are avaiable 
+- Service discovery
+- intelligent routing and resiliency 
+
+Citadle :
+- user authentication
+- credential management
+- certificate management
+- traffice encryption 
+
+Mixer : (lot of plugins avaiable for mixer)
+- access Control
+- usage policy
+- Telmentary data 
+- loggin moniotring 
+
+galley :
+
+Route53 :
+
+ZOnes : 
+- is container that holds important information about how to route Traffic 
+  domain names(example.com)  and its subdomains(singdli.example.com) .
+
+client --- Nameserver ----- Root name server .
+           -----> TLD Name server .com
+           -----> Domain level name server amazon.com 
+           <------- returns the ip  
+           - if it finds the match and returns the ip address 
+
+Hosted Zone :
+ is a collection of record sets that are managed under a single domain name .
+ these record sets tells route53 how to respond to a dns query ,similar to a tradational dns zone .
+ public hosted zone and private zone 
+
+ Public:
+ - how to route traffic from the internet and your domain.
+
+ Private : 
+ how to route traffice within one or more vpcs .
+
+
+ route53  health check monitors the health of the resources or email servers 
+ and are integrated with the cloudwatch for notification .
+ ran periodically.
+ 
+  
+

@@ -1,0 +1,29 @@
+eksctl
+- nodegroup
+- managed node group
+- scale
+- ondemand / spot instances 
+- cluster autoscaler
+  - dynamically scale the nodes in a cluster in or out within a nodegroup
+  - run as deployment 
+  - decides based on the cup and ram availability or request 
+  - multiaz or singleaz
+    - multiaz: stateless workloads
+    - singleaz: for statefull workloads
+    - mixture of both on-demands and spot instances .
+- exmaple:(https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-autoscaler-setup/)
+  - create a nodegroup with autoscaling enabled 
+     - 2 nodegroups with single az
+     - 1 nodegroup with multiaz using spot instance .
+  - deploy the autoscaler 
+    - create the deployment 
+    - add the annotation to the deployment to prevent from being evicted 
+    - set matching image version and cluster name in deployments
+    
+    cloudwatch container insight for eks 
+    - http://arun-gupta.github.io/cw-container-insights-eks/
+    https://aws.amazon.com/blogs/mt/introducing-container-insights-for-amazon-ecs/
+    https://aws.amazon.com/blogs/mt/using-amazon-cloudwatch-container-insights-to-monitor-amazon-eks-workloads/
+
+
+    Ukms7u91Tf

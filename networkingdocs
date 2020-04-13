@@ -1,0 +1,14 @@
+https://aws.amazon.com/blogs/aws/new-vpc-endpoint-for-amazon-s3/
+https://aws.amazon.com/vpc/faqs/#Peering_Connections
+https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/peer-with-vpc-in-another-account.html
+
+https://d1.awsstatic.com/whitepapers/building-a-scalable-and-secure-multi-vpc-aws-network-infrastructure.pdf
+
+https://aws.amazon.com/blogs/aws/learn-from-your-vpc-flow-logs-with-additional-meta-data/
+
+https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-logs-fields
+
+https://medium.com/@petr.ruzicka/istio-in-amazon-eks-23704aef4f28
+
+https://aws.amazon.com/blogs/opensource/getting-started-istio-eks/
